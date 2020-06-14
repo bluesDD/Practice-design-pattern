@@ -1,3 +1,4 @@
 iterator/__pycache__
 iterator/iterator/__pycache__
 *.log
+*.json
