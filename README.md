@@ -23,7 +23,10 @@ Iteratorは反復、繰り返すという意味。
 ```plantuml
 @startuml
 title シーケンス図
-アリス->ボブ
+passwd->Username
+passwd->UID
+passwd->LoginOrNot
+
 ```
 
 ## 参考
