@@ -16,3 +16,6 @@ class SpreadSheet:
 
   def update_single_cell(self, cell: str, text: str):
     self.__worksheet.update_acell(cell, text)
+
+ss = SpreadSheet()
+ss.update_single_cell("A1", "Done")
