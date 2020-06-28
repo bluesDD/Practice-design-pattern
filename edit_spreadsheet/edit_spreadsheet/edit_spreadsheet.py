@@ -40,9 +40,9 @@ class UserList:
   def __remove_word(self, word, array, index):
     array[index] = array[index].replace(word, "")
 
-  def main(self):
+  def create_users_arrays(self):
     user_array = self.__create_user_data_array()
-    print(user_array)
+    return print(user_array)
 
 user_list = UserList(lines)
-user_list.main()
+user_list.create_users_arrays()
