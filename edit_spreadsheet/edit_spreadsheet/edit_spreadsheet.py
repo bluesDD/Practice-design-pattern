@@ -42,7 +42,4 @@ class UserList:
 
   def create_users_arrays(self):
     user_array = self.__create_user_data_array()
-    return print(user_array)
-
-user_list = UserList(lines)
-user_list.create_users_arrays()
+    return user_array
