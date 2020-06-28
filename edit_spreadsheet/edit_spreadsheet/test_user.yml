@@ -1,0 +1,13 @@
+- name: XXXX
+  uid: 7022
+  group: XXXX
+  authorized_keys:
+    - key: ''
+      exclusive: true
+- name: YYYY
+  uid: 7023
+  group: YYYY
+  authorized_keys:
+    - key: ''
+      exclusive: true
+  state: absent
