@@ -1,8 +1,7 @@
-with open("test_user.yml") as f:
-  lines = [trimed_line.strip() for trimed_line in  f.readlines()]
+import csv
 
 class UserList:
-  users_arrays = []
+  users_arrays = [["UID", "ユーザー名", "ログイン可否"]]
   def __init__(self, lines):
     self.lines = lines
 
@@ -43,3 +42,27 @@ class UserList:
   def create_users_arrays(self):
     user_array = self.__create_user_data_array()
     return user_array
+
+class SudoUserParser(UserList):
+  sudo_users = ["Sudo権限", "XXXX", "YYY4"]
+  permission_flag = True
+  no_permission_flag = False
+
+  def __init__(self, userlist):
+    self.userlist = userlist
+
+  def append_sudo_users(self):
+    index = 0
+
+    self.userlist[0].append(self.sudo_users[0])
+
+    for item in self.userlist:
+      if index == 0:
+        pass
+      elif item[1] in self.sudo_users:
+        self.userlist[index].append(self.permission_flag)
+      else:
+        self.userlist[index].append(self.no_permission_flag)
+      index += 1
+    return self.userlist
+

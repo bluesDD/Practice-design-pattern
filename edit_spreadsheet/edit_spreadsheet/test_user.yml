@@ -11,3 +11,31 @@
     - key: ''
       exclusive: true
   state: absent
+- name: YYY1
+  uid: 7023
+  group: YYYY
+  authorized_keys:
+    - key: ''
+      exclusive: true
+  state: absent
+- name: YYY2
+  uid: 7023
+  group: YYYY
+  authorized_keys:
+    - key: ''
+      exclusive: true
+  state: absent
+- name: YYY3
+  uid: 7023
+  group: YYYY
+  authorized_keys:
+    - key: ''
+      exclusive: true
+  state: absent
+- name: YYY4
+  uid: 7023
+  group: YYYY
+  authorized_keys:
+    - key: ''
+      exclusive: true
+  state: absent
