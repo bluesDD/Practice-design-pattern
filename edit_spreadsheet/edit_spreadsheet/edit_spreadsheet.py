@@ -66,3 +66,22 @@ class SudoUserParser(UserList):
       index += 1
     return self.userlist
 
+class CsvWriter:
+  def __init__(self, file):
+    self.file = file
+
+#  def to_csv()
+
+
+if __name__ == "__main__":
+    with open("test_user.yml") as f:
+      lines = [trimed_line.strip() for trimed_line in f.readlines()]
+
+    user_list = UserList(lines)
+    arrays = user_list.create_users_arrays()
+
+    s = SudoUserParser(arrays)
+
+    with open("tmp.csv", "w") as f:
+      writer = csv.writer(f)
+      writer.writerows(s.append_sudo_users())
