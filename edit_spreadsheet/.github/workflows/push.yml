@@ -1,0 +1,23 @@
+on: push
+name: on push
+jobs:
+  gitHubActionForPylint:
+    name: GitHub Action for pylint
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@master
+
+    # - name: Setup Node
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '12.x'
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+
+
+    - name: Install flake8
+      run: |
+        /usr/bin/python3 -m pip install --upgrade pip
+        pip install flake8 pytest
