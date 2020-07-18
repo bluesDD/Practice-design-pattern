@@ -4,11 +4,11 @@ from abc import ABCMeta, abstractmethod
 # 参考：https://refactoring.guru/design-patterns/abstract-factory
 class GUIFactory(metaclass=ABCMeta):
   @abstractmethod
-  def create_button(self):
+  def create_button(self) -> Button:
     pass
 
   @abstractmethod
-  def create_checkbox(self):
+  def create_checkbox(self) -> Checkbox:
     pass
 
 
