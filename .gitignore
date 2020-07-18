@@ -3,3 +3,7 @@ iterator/iterator/__pycache__
 *.log
 *.json
 *__pycache__*
+*.pyc
+*.out
+*.csv
+*37.pyc
