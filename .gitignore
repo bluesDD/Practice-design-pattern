@@ -7,3 +7,4 @@ iterator/iterator/__pycache__
 *.out
 *.csv
 *37.pyc
+*.txt
