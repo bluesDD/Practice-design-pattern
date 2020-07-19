@@ -13,5 +13,5 @@ class Expense(Transaction):
 
 class ExpenseSchema(TransactionSchema):
   @post_load
-  def make_expense(self, data):
+  def make_expense(self, data, **kwargs):
     return Expense(**data)
