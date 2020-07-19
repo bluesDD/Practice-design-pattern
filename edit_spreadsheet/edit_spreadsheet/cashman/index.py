@@ -1,19 +1,16 @@
 from flask import Flask, jsonify, request
 from .model.expense import Expense, ExpenseSchema
-from cashman.model.income import Income, IncomeSchema
-from cashman.model.transaction_type import TransactionType
-
+from .model.income import Income, IncomeSchema
+from .model.transaction_type import TransactionType
+import sys
 
 app = Flask(__name__)
-
-incomes = [
-  {"description": "salary", "amount": 5000}
-]
 
 transactions = [
   Income("Salary", 5000),
   Income("Dividends", 200),
-  Expense("pizza", 50),
+  Expense("Pizza", 50),
+  Expense("Pasta", 50),
   Expense("Rock Concert", 100)
 ]
 
@@ -27,7 +24,7 @@ def get_incomes():
   incomes = schema.dump(
     filter(lambda t: t.type == TransactionType.INCOME, transactions)
   )
-  return jsonify(incomes.data)
+  return jsonify(incomes)
 
 @app.route('/incomes', methods=["POST"])
 def add_income():
@@ -41,13 +38,15 @@ def get_expenses():
   expenses = schema.dump(
     filter(lambda t: t.type == TransactionType.EXPENSE, transactions)
   )
-  return jsonify(expenses.data)
+  return jsonify(expenses)
 
 @app.route('/expenses', methods=["POST"])
-def method_name():
+def add_expense():
+  sys.stdout.write('test\n')
+  sys.stdout.flush()
   expense = ExpenseSchema().load(request.get_json())
-  transactions.append(expense.data)
-  return "", 204
+  # transactions.append(expense.data)
+  return "aadded", 204
 
 
 

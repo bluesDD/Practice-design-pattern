@@ -44,7 +44,7 @@ class UserList:
     return user_array
 
 class SudoUserParser(UserList):
-  sudo_users = ["Sudo権限", "XXXX", "YYY4"]
+  sudo_users = ["Sudo権限", "Alice", "John"]
   permission_flag = True
   no_permission_flag = False
 

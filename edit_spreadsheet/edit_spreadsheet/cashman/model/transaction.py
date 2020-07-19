@@ -13,7 +13,7 @@ class Transaction():
 
 
 class TransactionSchema(Schema):
-  description = fileds.Str()
-  amount = fileds.Number()
-  created_at = fileds.Date()
-  type = fileds.Str()
+  description = fields.Str()
+  amount = fields.Number()
+  created_at = fields.Date()
+  type = fields.Str()
