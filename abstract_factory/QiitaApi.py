@@ -17,7 +17,7 @@ class UserPosts:
     json_res_data = json.loads(data)
 
     for i in range(self.POSTS_COUNT):
-      print (json_res_data[i]["created_at"] + json_res_data[i]["title"] + "Likes" + str(json_res_data[i]["likes_count"]))
+      print (json_res_data[i]["created_at"] + json_res_data[i]["title"] + "Likes" + str(json_res_data[i]["likes_count"])
       list = []
       index = 0
       for t in json_res_data[i]["tags"]: 
