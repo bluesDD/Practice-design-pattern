@@ -1,8 +1,31 @@
 import datetime as dt
 from marshmallow import Schema, fields, post_load
 from pprint import pprint
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 # 参考：https://marshmallow.readthedocs.io/en/stable/quickstart.html
+
+
+class NewUser(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  first = db.Column(db.String(80))
+  last = db.Column(db.String(80))
+
+class NewUserSchema(Schema):
+  id = fields.Int(dump_only=True)
+  first = fields.Str()
+  last = fields.Str()
+  formatted_name = fields.Method("format_name", dump_only=True)
+
+  def format_name(self, newuser):
+    return "{}, {}".format(newuser.last, newuser)
+
+def must_not_be_blank(data):
+  if not data:
+    raise ValidationError("Data not provided")
 
 class User:
   def __init__(self, name, email):
