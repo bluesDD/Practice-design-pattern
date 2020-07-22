@@ -1,12 +1,17 @@
 from flask import Flask, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
 from .model.expense import Expense, ExpenseSchema
 from .model.income import Income, IncomeSchema
 from .model.transaction_type import TransactionType
-from .model.user import User, UserSchema
+from .model.user import User, UserSchema, NewUser, NewUserSchema
 import sys
 
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./quotes.db"
+db = SQLAlchemy(app)
+
+newusers_schema = NewUserSchema(many=True)
 
 transactions = [
   Income("Salary", 5000),
@@ -57,6 +62,15 @@ def get_user():
   user = schema.dump(user_data)
   return jsonify(user)
 
+@app.route('/newuser')
+def get_newuser():
+  users = NewUser.query.all()
+  result = newusers_schema.dump(users)
+  return {"authors": result}
+
+  
+
 
 if __name__ == "__main__":
+  db.create_all()
   app.run()
