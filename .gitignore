@@ -8,3 +8,6 @@ iterator/iterator/__pycache__
 *.csv
 *37.pyc
 *.txt
+*.db
+*.sqlite
+PKG-INFO
