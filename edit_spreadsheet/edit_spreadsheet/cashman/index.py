@@ -8,8 +8,6 @@ import sys
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///flask.sqlite"
-db = SQLAlchemy(app)
 
 newusers_schema = NewUserSchema(many=True)
 
@@ -69,8 +67,10 @@ def get_newuser():
   return {"authors": "result"}
 
 
-
 if __name__ == "__main__":
+  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///flask.sqlite"
+  app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+  db = SQLAlchemy(app)
   init_db(app)
   db.create_all()
   app.run()
