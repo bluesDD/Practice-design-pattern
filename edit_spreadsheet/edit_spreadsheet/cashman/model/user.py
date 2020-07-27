@@ -21,6 +21,9 @@ class NewUser(db.Model):
   first = db.Column(db.String(80))
   last = db.Column(db.String(80))
 
+  def __repr__(self):
+    return "<NewUser(name={self.first!r})>".format(self=self)
+
   def add_user(self, first, last):
     self.first = first
     self.last = las
