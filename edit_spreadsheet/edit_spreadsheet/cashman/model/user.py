@@ -3,18 +3,11 @@ from marshmallow import Schema, fields, post_load
 from pprint import pprint
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from ..database import db
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///flask.sqlite"
-db = SQLAlchemy()
 
 
 # 参考：https://marshmallow.readthedocs.io/en/stable/quickstart.html
-
-def init_db(app):
-  db.create_engine("sqlite:///sample_db.sqlite3")
-  db.init_app(app)
-  db.create_all()
 
 class NewUser(db.Model):
   id = db.Column(db.Integer, primary_key=True)

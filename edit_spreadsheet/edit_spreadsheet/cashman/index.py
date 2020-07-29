@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from .model.expense import Expense, ExpenseSchema
 from .model.income import Income, IncomeSchema
 from .model.transaction_type import TransactionType
-from .model.user import User, UserSchema, NewUser, NewUserSchema, init_db
+from .model.user import User, UserSchema, NewUser, NewUserSchema
+from .app import app
+from .database import db
 import sys
 
 
-app = Flask(__name__)
 
 newusers_schema = NewUserSchema(many=True)
 
@@ -64,13 +65,8 @@ def get_user():
 def get_newuser():
   users = NewUser.query.all()
   result = newusers_schema.dump(users)
-  return {"authors": "result"}
+  return {"authors": result}
 
 
 if __name__ == "__main__":
-  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///flask.sqlite"
-  app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-  db = SQLAlchemy(app)
-  init_db(app)
-  db.create_all()
   app.run()
