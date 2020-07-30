@@ -7,3 +7,8 @@ db = SQLAlchemy()
 def init_db(app):
   db.init_app(app)
   Migrate(app, db)
+
+def insert_db(json):
+  db.session.add(json)
+  db.session.commit()
+  db.session.close()

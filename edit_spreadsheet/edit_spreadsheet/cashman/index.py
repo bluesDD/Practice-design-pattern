@@ -5,7 +5,7 @@ from .model.income import Income, IncomeSchema
 from .model.transaction_type import TransactionType
 from .model.user import User, UserSchema, NewUser, NewUserSchema
 from .app import app
-from .database import db
+from .database import db, insert_db
 import sys
 
 
@@ -70,10 +70,8 @@ def get_newuser():
 @app.route('/newuser', methods=["POST"])
 def add_newuser():
   newuser = NewUserSchema().load(request.get_json())
-  db.session.add(newuser)
-  db.session.commit()
-  db.session.close()
-  return "", 204
+  insert_db(newuser)
+  return jsonify({"user": "added"}), 200
 
 
 if __name__ == "__main__":
