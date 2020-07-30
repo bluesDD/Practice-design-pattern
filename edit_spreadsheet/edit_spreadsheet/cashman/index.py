@@ -67,6 +67,14 @@ def get_newuser():
   result = newusers_schema.dump(users)
   return {"authors": result}
 
+@app.route('/newuser', methods=["POST"])
+def add_newuser():
+  newuser = NewUserSchema().load(request.get_json())
+  db.session.add(newuser)
+  db.session.commit()
+  db.session.close()
+  return "", 204
+
 
 if __name__ == "__main__":
   app.run()
