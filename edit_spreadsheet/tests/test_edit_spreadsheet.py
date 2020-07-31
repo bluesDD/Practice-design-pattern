@@ -24,6 +24,9 @@ def test_flask_api_routing():
     user_response = c.get("/user")
     assert user_response.status_code == 200
 
+    expenses_response = c.get("/expenses")
+    assert expenses_response.status_code == 200
+
   with app.test_client() as c:
     newuser_response = c.get("/newuser")
     assert newuser_response.status_code == 200
