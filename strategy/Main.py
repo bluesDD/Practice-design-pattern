@@ -30,7 +30,7 @@ class Context:
 
 
 def main():
-  user_input = input("Enter your application name(add/sub/multiply)")
+  user_input = input("Enter your application name(add/sub/multiply): ")
   user_input_int_1 = input("Enter your first number: ")
   user_input_int_2 = input("Enter your second number: ")
 
@@ -48,7 +48,7 @@ def main():
 
   result = context.executeStrategy(int(user_input_int_1), int(user_input_int_2))
 
-  print(result)
+  print("result is: " + str(result))
 
 
 if __name__ == "__main__":
