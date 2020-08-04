@@ -9,7 +9,7 @@ class Dialog:
 
   def render(self):
     okButton = self.createButton()
-    okButton.onClick(WindowDialog())
+    okButton.onClick()
     okButton.render()
 
 
@@ -20,7 +20,7 @@ class WindowDialog(Dialog):
 
 
 
-class Button(metaClass=ABCMeta):
+class Button:
   @abstractmethod
   def render(self):
     pass
@@ -52,5 +52,5 @@ class Application:
 
 if __name__ == "__main__":
   print("App started")
-  app = (Application("Windows"))
+  app = Application("Windows")
   app.main()
