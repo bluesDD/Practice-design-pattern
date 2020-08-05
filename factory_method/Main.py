@@ -30,7 +30,7 @@ class WindowsButton(Button):
   def render(self):
     return print("Window button rended")
 
-  def onClick(self, f):
+  def onClick(self):
     return print("Window On Click")
 
 
