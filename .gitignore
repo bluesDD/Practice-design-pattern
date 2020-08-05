@@ -11,3 +11,4 @@ iterator/iterator/__pycache__
 *.db
 *.sqlite
 PKG-INFO
+r.py
