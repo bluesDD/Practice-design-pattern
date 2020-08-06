@@ -95,6 +95,14 @@ version = "3.0.4"
 
 [[package]]
 category = "main"
+description = "Installer for chromedriver."
+name = "chromedriver-binary"
+optional = false
+python-versions = "*"
+version = "84.0.4147.30.0"
+
+[[package]]
+category = "main"
 description = "Composable command line interface toolkit"
 name = "click"
 optional = false
@@ -551,7 +559,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "c1f212534c4e17018d540d34871751fe710cfc9b01356c5012b6d1b8d140173c"
+content-hash = "312791213777f279448d9112787e5a3630245a6d3e3a7733f2180e94b734bd4e"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -589,6 +597,9 @@ certifi = [
 chardet = [
     {file = "chardet-3.0.4-py2.py3-none-any.whl", hash = "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"},
     {file = "chardet-3.0.4.tar.gz", hash = "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"},
+]
+chromedriver-binary = [
+    {file = "chromedriver-binary-84.0.4147.30.0.tar.gz", hash = "sha256:206b071a0ee8f55b3337c8008a467e9fb3001b331d599e16083ccd48a9a0f579"},
 ]
 click = [
     {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
