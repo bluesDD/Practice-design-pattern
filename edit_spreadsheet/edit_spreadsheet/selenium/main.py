@@ -5,8 +5,9 @@ import time
 
 driver = webdriver.Chrome() 
 driver.get('https://members.classmethod.net/#!/login')
+print(driver.current_url)
 wrapper = driver.find_element_by_id("wrapper")
-id = driver.find_element_by_id("loginID")
-password = driver.find_element_by_id("loginPW")
+# id = driver.find_element_by_id("loginID")
+# password = driver.find_element_by_id("loginPW")
 time.sleep(5)
 driver.quit()
