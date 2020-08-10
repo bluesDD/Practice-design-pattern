@@ -14,7 +14,9 @@ try:
     expected_conditions.presence_of_element_located((By.ID, "loginID"))
   )
   print(id)
-  print(driver.title)
+  password = WebDriverWait(driver, 15).until(
+    expected_conditions.presence_of_element_located((By.ID, "loginPW"))
+  )
 except TimeoutError:
   print("Timeout")
 
