@@ -12,7 +12,10 @@ user_password = "test"
 element_id_user_id = "loginID"
 element_id_user_password = "loginPW"
 element_class_login_button = "btn"
-driver = webdriver.Chrome() 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+
+driver = webdriver.Chrome(options=options) 
 driver.get(target_url)
 
 try:
