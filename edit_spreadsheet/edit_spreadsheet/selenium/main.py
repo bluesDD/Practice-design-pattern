@@ -30,7 +30,7 @@ try:
   driver.find_element_by_class_name(element_class_login_button).click()
 
 except TimeoutError:
-  sys.exit("Timeout")
+  sys.exit("Timeout, check if the url is correct")
 
 time.sleep(5)
 driver.quit()
