@@ -5,7 +5,9 @@ from selenium.webdriver.support import expected_conditions
 import chromedriver_binary
 import time
 import sys
+import os
 
+file_name = os.path.join(os.path.dirname(os.path.abspath(__file__)), "image/test.png")
 target_url = "https://members.classmethod.net/#!/login"
 user_id = "test"
 user_password = "test"
@@ -32,5 +34,6 @@ try:
 except TimeoutError:
   sys.exit("Timeout, check if the url is correct")
 
+driver.save_screenshot(file_name)
 time.sleep(5)
 driver.quit()
