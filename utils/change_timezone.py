@@ -1,6 +1,10 @@
-from datetime import datetime, timezone, timedelta
+from datetime import timedelta, date
 
-print(timezone.utc)
-print(datetime.now())
-tz_jst = timezone(timedelta(hours=9))
-print(tz_jst)
+now = date.today()
+print(now)
+day = date.today() + timedelta(hours=-24)
+some = day.strftime("%Y-%m-%d")
+print(some)
+day = date.today() + timedelta(hours=+24)
+some = day.strftime("%Y-%m-%d")
+print(some)

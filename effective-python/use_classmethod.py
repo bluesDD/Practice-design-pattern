@@ -90,7 +90,7 @@ def execute(workers):
     for thread in threads: thread.start()
     for thread in threads: thread.join()
 
-    first, rest = workers
+    first, *rest = workers
     for worker in rest:
         first.reduce(worker)
     return first.result
