@@ -1,3 +1,4 @@
+from pytz import timezone
 from datetime import timedelta, date, datetime
 
 now = date.today()
@@ -11,3 +12,8 @@ print(some)
 day = datetime.now() + timedelta(hours=+2)
 some = day.strftime("%Y-%m-%d")
 print(some)
+
+now = datetime.now(timezone('UTC'))
+print(now)
+now = now.astimezone(timezone('Asia/Tokyo'))
+print(now)
