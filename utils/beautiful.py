@@ -10,5 +10,8 @@ soup = BeautifulSoup(r.text, 'lxml')
 a_items = soup.find_all("a", attrs={"class": "trn-lb-entry__name"})
 for item in a_items:
     print(item.string)
-print(soup.find("a", attrs={"class": "trn-lb-entry__name"}).string)
+
+a_item = soup.find("a", attrs={"class": "trn-lb-entry__name"}).string)
+
+print()
 
