@@ -58,4 +58,26 @@ def get_a_list_of_teammate():
   })
 
 
-print(json.loads(get_a_list_of_teammate())["results"][0])
+class teammate:
+  """
+  deal with teammate
+  """
+
+  res_data = ""
+
+  def __init__(self, json_res_data):
+      self.res_data = json.loads(json_res_data)["results"]
+
+  def get_basic_user_info(self):
+      items = []
+      for item in self.res_data:
+        self.username = item["username"]
+        self.email = item["email"]
+        self.first_name = item["first_name"]
+        self.last_name = item["last_name"]
+        basic_info = [self.username, self.email, self.first_name, self.last_name]
+        items.append(basic_info)
+      return items
+tm = teammate(get_a_list_of_teammate())
+print(tm.get_basic_user_info())
+# print(json.loads(get_a_list_of_teammate())["results"])
