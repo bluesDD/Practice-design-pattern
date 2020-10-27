@@ -81,5 +81,8 @@ class teammate:
         items.append(basic_info)
       return items
 tm = teammate(get_a_list_of_teammate())
-print(tm.get_basic_user_info())
+
+with open('data.csv', 'w') as file:
+  writer = csv.writer(file, lineterminator='\n')
+  writer.writerows(tm.get_basic_user_info())
 # print(json.loads(get_a_list_of_teammate())["results"])
