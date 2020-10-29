@@ -13,3 +13,4 @@ iterator/iterator/__pycache__
 PKG-INFO
 r.py
 *.png
+sendgrid.env
