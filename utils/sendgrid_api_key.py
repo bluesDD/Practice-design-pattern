@@ -2,6 +2,7 @@ from sendgrid import SendGridAPIClient
 import os
 
 
+## 他PCからのアクセスができない
 sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
 res = sg.client.user.account.get()
 print(res.status_code)
