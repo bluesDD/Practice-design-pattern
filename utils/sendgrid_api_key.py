@@ -16,4 +16,4 @@ res = sg.client.api_keys.post(request_body=data)
 print(res.status_code)
 #200
 print(res.body)
-b'{"is_reseller_customer":true,"reputation":100,"type":"free"}'
+# b'{"is_reseller_customer":true,"reputation":100,"type":"free"}'
