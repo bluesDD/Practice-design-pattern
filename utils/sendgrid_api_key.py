@@ -5,7 +5,7 @@ import json
 import typing as tp
 
 base_url = "https://api.sendgrid.com/v3"
-sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+sg = SendGridAPIClient()
 
 data = {
   "name": "Test key",
@@ -25,3 +25,9 @@ headers = {'Authorization': 'Bearer ' + api_key}
 res_teammates = requests.get(base_url + "/teammates", headers=headers)
 print(json.loads(res_teammates.text)["result"])
 # b'{"is_reseller_customer":true,"reputation":100,"type":"free"}'
+
+class Client:
+    def __init__(self, base_url: str, http_clinet, api_key: str) -> None:
+        self.__base_url = base_url
+        self.__http_clinet = http_clinet
+        self.__api_key = api_key
