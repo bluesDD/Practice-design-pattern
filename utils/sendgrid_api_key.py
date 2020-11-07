@@ -27,7 +27,10 @@ print(json.loads(res_teammates.text)["result"])
 # b'{"is_reseller_customer":true,"reputation":100,"type":"free"}'
 
 class Client:
-    def __init__(self, base_url: str, http_clinet, api_key: str) -> None:
+    def __init__(
+          self,
+          base_url="https://api.sendgrid.com/v3",
+          api_key=None):
         self.__base_url = base_url
         self.__http_clinet = http_clinet
         self.__api_key = api_key
