@@ -31,6 +31,6 @@ class Client:
           self,
           base_url="https://api.sendgrid.com/v3",
           api_key=None):
+
         self.__base_url = base_url
-        self.__http_clinet = http_clinet
         self.__api_key = api_key
