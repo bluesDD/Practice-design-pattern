@@ -19,13 +19,13 @@ function retrieve_teammates() {
                 "Authorization": "Bearer "+ SENDGRID_TEAMMATES_READONLY_API_KEY}
     });
     
-    const res_json = res.getContentText();
-    const res_text = JSON.parse(res_json);
+    const res_text = JSON.parse(res.getContentText());
     
     Logger.log("Retrieve teammates completed!");
     for (var i in res_text.result) {
       Logger.log(res_text.result[i].email);
     }
+    // Todo: Key And Value To Spreadsheet
   } catch(e) {
     Logger.log("Retrieving teammates failed...")
     Logger.log(e)
