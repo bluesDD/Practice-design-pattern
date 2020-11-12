@@ -19,7 +19,7 @@ function retrieve_teammates() {
     Logger.log("Retrieve teammates completed!");
 
     for (var i in res_text.result) {
-      Logger.log(res_text.result[i].email);
+      Object.values(res_text.result[i]);
     }
     // Todo: Key And Value To Spreadsheet
   } catch(e) {
