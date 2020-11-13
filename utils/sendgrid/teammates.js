@@ -17,11 +17,19 @@ function retrieve_teammates() {
     const res_text = JSON.parse(res.getContentText());
     
     Logger.log("Retrieve teammates completed!");
-
+    var teammates = [];
     for (var i in res_text.result) {
-      Object.values(res_text.result[i]);
+      teammates.push(Object.values(res_text.result[i]));
     }
-    // Todo: Key And Value To Spreadsheet
+
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sh = ss.getActiveSheet();
+    var last_row = sh.getLastRow();
+    var rows = teammates.length;
+    var cols = teammates[0].length;
+    
+    sh.getRange(1,4,rows,cols).setValues(ary);
+
   } catch(e) {
     Logger.log("Retrieving teammates failed...")
     Logger.log(e)
