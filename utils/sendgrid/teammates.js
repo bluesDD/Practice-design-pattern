@@ -24,11 +24,10 @@ function retrieve_teammates() {
 
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var sh = ss.getActiveSheet();
-    var last_row = sh.getLastRow();
     var rows = teammates.length;
     var cols = teammates[0].length;
     
-    sh.getRange(1,4,rows,cols).setValues(ary);
+    sh.getRange(1,1,rows,cols).setValues(teammates);
 
   } catch(e) {
     Logger.log("Retrieving teammates failed...")
