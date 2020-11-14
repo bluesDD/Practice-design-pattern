@@ -23,6 +23,9 @@ function retrieve_teammates() {
     }
 
     var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var date = new Date();
+    var today = Utilities.formatDate( date, 'Asia/Tokyo', 'yyyyMMdd')
+    ss.insertSheet(today)
     var sh = ss.getActiveSheet();
     var rows = teammates.length;
     var cols = teammates[0].length;
