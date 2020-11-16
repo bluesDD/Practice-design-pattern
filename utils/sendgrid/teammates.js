@@ -17,6 +17,7 @@ function retrieve_teammates() {
     const res_text = JSON.parse(res.getContentText());
     
     Logger.log("Retrieve teammates completed!");
+    
     var teammates = [];
     for (var i in res_text.result) {
       teammates.push(Object.values(res_text.result[i]));
