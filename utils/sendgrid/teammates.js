@@ -32,6 +32,7 @@ function retrieve_teammates() {
     var cols = teammates[0].length;
     
     sh.getRange(1,1,rows,cols).setValues(teammates);
+    Logger.log("Complete to write down teamamtes");
 
   } catch(e) {
     Logger.log("Failed to retrieve sendgrid teammates...")
