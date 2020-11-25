@@ -6,3 +6,12 @@ function get_diff() {
   array3 = array1.filter(i => array2.indexOf(i) == -1)
   return array3; // [5, 6]
 }
+
+
+function get_last_data () {
+  const sheet = SpreadsheetApp.openById("");
+  const data = sheet.getSheetByName("20201124");
+  const data2 = data.getRange(1, 1, sheet.getLastRow(), sheet.getLastColumn()).getValues();
+  Logger.log(data2);
+  
+}
