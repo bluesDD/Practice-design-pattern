@@ -8,9 +8,9 @@ function get_diff() {
 }
 
 
-function get_last_data () {
+function get_sheet_data (sheet_name) {
   const sheet = SpreadsheetApp.openById("");
-  const data = sheet.getSheetByName("20201124");
+  const data = sheet.getSheetByName(sheet_name);
   const data2 = data.getRange(1, 1, sheet.getLastRow(), sheet.getLastColumn()).getValues();
   Logger.log(data2);
   
