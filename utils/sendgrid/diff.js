@@ -15,3 +15,9 @@ function get_sheet_data (sheet_name) {
   Logger.log(data2);
   
 }
+
+function get_today () {
+  var date = new Date();
+  var today = Utilities.formatDate(date, 'Asia/Tokyo', 'yyyyMMdd');
+  return today;
+}
