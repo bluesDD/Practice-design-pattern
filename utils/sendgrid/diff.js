@@ -31,6 +31,8 @@ function diff_date() {
 
 function get_data_from_rows(row_num=4) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sh = ss.getActiveSheet() 
-  Logger.log(sh.getRange(1, row_num, sh.getLastRow()).getValues())
+  var sh = ss.getActiveSheet();
+  var rows = sh.getRange(1, row_num, sh.getLastRow()).getValues();
+  Logger.log(Array.prototype.concat.apply([], rows));
+
 }
