@@ -22,10 +22,12 @@ function get_today () {
   return today;
 }
 
-function diff_date() {
-  var dt = Math.abs(d1.getTime() - d2.getTime()); // ミリ秒数値を引き算
-  var d = dt / (1000 * 60 * 60 * 24); // １日のミリ秒数で割り算
+function diff_date(d1="2020/11/15") {
+  var now = Moment.moment();
+  var d2 = Moment.moment(d1);
+  var d = now.diff(d2, "d");
   Logger.log(d + "日 "); // ログに出力
+  return d
 }
 
 
