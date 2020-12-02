@@ -38,3 +38,10 @@ function get_data_from_rows(row_num=4) {
   Logger.log(Array.prototype.concat.apply([], rows));
 
 }
+
+
+function is_target(date=30) {
+  if (date > 20) {
+    Logger.log(true)
+  }
+}
