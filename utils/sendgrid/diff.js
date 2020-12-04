@@ -42,6 +42,6 @@ function get_data_from_rows(row_num=4) {
 var firts_period = 40
 function is_target(date=30) {
   if (date > first_period) {
-    Logger.log(true)
+    return true
   }
 }
