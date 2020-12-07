@@ -27,3 +27,11 @@ function main() {
   }
   
 }
+
+function caliculate_remaining_days(days, base_date) {
+  var no_target_items = 0
+  if (days < base_date) {
+    return days
+  }
+  return no_target_items
+}
