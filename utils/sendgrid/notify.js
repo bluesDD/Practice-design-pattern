@@ -1,30 +1,16 @@
-function notifySlack() {
-  let postUrl  = ""
-  let userName = "テストbotくん"   // Slackに通知する時の名前になります
-  let icon     = ":innocent:"    // 表示されるアイコン
-  let message  = "これはGASからのテストメッセージです" // 送信するメッセージ
- 
-  // ここで以下をオプションに設定できます
-  // username(通知者の名前)
-  // icon_emoji(アイコン)
-  // text (送信するメッセージ)
-  let jsonData = {
-    "username" : userName,
-    "icon_emoji" : icon,
-    "text" : message
-  }  
- 
-  // 上の送信内容を設定  
-  let payload = JSON.stringify(jsonData)
- 
-  // オプションを設定
-  let options =
-  {
-    "method" : "post",
-    "contentType" : "application/json",
-    "payload" : payload
-  };
- 
-  // Slackに通知する
-  UrlFetchApp.fetch(postUrl, options);  
- }
+function notify_slack(message) {
+  var post_url  = "";
+  var slack_message = message + "日以内に期限が切れる証明書・ドメインがあります！→ https://docs.google.com/spreadsheets/d/1aN96iDo_9we9t_LQZ4oxrUna-jQIXvIeie59Ll5fZps/edit#gid=827799759"
+
+  var options = {
+    "method" : "POST",
+    "payload" : JSON.stringify({
+      "text": slack_message
+    })
+  }
+  try {
+    UrlFetchApp.fetch(post_url, options);
+  } catch (e) {
+    Logger.log(e)
+  }
+}
