@@ -21,6 +21,7 @@ function main() {
   
   if (expires_in_30) {
     notify_slack(30)
+    expires_in_40 = false
   }
   if (expires_in_40) {
     notify_slack(40)
