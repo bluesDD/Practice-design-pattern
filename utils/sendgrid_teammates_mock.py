@@ -80,9 +80,11 @@ class teammate:
         basic_info = [self.username, self.email, self.first_name, self.last_name]
         items.append(basic_info)
       return items
-tm = teammate(get_a_list_of_teammate())
 
-with open('data.csv', 'w') as file:
-  writer = csv.writer(file, lineterminator='\n')
-  writer.writerows(tm.get_basic_user_info())
-# print(json.loads(get_a_list_of_teammate())["results"])
+if __name__ == "__main__":
+  tm = teammate(get_a_list_of_teammate())
+
+  with open('data.csv', 'w') as file:
+    writer = csv.writer(file, lineterminator='\n')
+    writer.writerows(tm.get_basic_user_info())
+    # print(json.loads(get_a_list_of_teammate())["results"])
