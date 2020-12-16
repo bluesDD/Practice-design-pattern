@@ -31,3 +31,8 @@ function caliculate_remaining_days(days, base_date) {
   }
   return no_target_items
 }
+
+function set_property(key, value) {
+  var document_properties = PropertiesService.getDocumentProperties();
+  document_properties.setProperty(key ,value)
+}
