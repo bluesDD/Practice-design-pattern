@@ -36,3 +36,8 @@ function set_property(key, value) {
   var document_properties = PropertiesService.getDocumentProperties();
   document_properties.setProperty(key ,value)
 }
+
+function get_property(key) {
+  var document_properties = PropertiesService.getDocumentProperties();
+  return document_properties.getProperty(key)
+}
