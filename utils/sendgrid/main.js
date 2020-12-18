@@ -20,6 +20,8 @@ function main() {
   
   if (remaining_days) {
     notify_slack(remaining_days)
+  } else {
+    Logger.log("No items will exipires in 1 month")
   }
   
 }
