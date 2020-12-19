@@ -1,5 +1,6 @@
 import json
 import csv
+from dataclasses import dataclass
 
 
 def get_a_list_of_teammate():
@@ -58,9 +59,16 @@ def get_a_list_of_teammate():
       }
     ]
   })
+  
+@dataclass
+class Teammate(object):
+  username: str
+  email: str
+  first_name: str
+  last_name: str
+  is_admin: bool
 
-
-class teammate:
+  class teammate:
   """
   deal with teammate
   """
