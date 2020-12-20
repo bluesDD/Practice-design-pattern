@@ -66,9 +66,19 @@ class Teammate(object):
   email: str
   first_name: str
   last_name: str
+  user_type: str
   is_admin: bool
+  phone: str
+  website: str
+  company: str
+  address: str
+  address2: str
+  city: str
+  state: str
+  country: str
+  zip: str
 
-  class teammate:
+class teammate:
   """
   deal with teammate
   """
