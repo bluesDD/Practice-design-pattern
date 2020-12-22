@@ -26,7 +26,8 @@ def get_teammates():
   return json.loads(res.body)
 
 def touch_json():
-  with open("teammates.json", "w") as target:
-    pass
+  with open("teammates.json", "w") as f:
+    res = get_teammates()
+    f.write(json.dumps(res["result"], indent=4))
 if __name__ == "__main__":
-  print(get_teammates())
+  touch_json()
