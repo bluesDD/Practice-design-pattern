@@ -25,5 +25,8 @@ def get_teammates():
   res = sg.client.teammates.get()
   return json.loads(res.body)
 
+def touch_json():
+  with open("teammates.json", "w") as target:
+    pass
 if __name__ == "__main__":
   print(get_teammates())
