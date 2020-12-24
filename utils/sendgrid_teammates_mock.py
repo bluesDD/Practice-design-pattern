@@ -60,7 +60,7 @@ def get_a_list_of_teammate():
     ]
   })
   
-@dataclass
+@dataclass(frozen=True)
 class Teammate(object):
   username: str
   email: str
@@ -77,7 +77,6 @@ class Teammate(object):
   state: str
   country: str
   zip: str
-
 class teammate:
   """
   deal with teammate
