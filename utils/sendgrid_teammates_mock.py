@@ -104,4 +104,3 @@ if __name__ == "__main__":
   with open('data.csv', 'w') as file:
     writer = csv.writer(file, lineterminator='\n')
     writer.writerows(tm.get_basic_user_info())
-    # print(json.loads(get_a_list_of_teammate())["results"])
