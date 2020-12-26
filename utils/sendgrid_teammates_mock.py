@@ -60,23 +60,6 @@ def get_a_list_of_teammate():
     ]
   })
   
-@dataclass(frozen=True)
-class Teammate(object):
-  username: str
-  email: str
-  first_name: str
-  last_name: str
-  user_type: str
-  is_admin: bool
-  phone: str
-  website: str
-  company: str
-  address: str
-  address2: str
-  city: str
-  state: str
-  country: str
-  zip: str
 class teammate:
   """
   deal with teammate

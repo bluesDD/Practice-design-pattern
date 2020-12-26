@@ -1,4 +1,5 @@
 from sendgrid import SendGridAPIClient
+from dataclasses import dataclass
 import os
 import requests
 import json
@@ -31,3 +32,26 @@ def touch_json():
     f.write(json.dumps(res["result"], indent=4))
 if __name__ == "__main__":
   touch_json()
+
+@dataclass(frozen=True)
+class Teammate(object):
+  username: str
+  email: str
+  first_name: str
+  last_name: str
+  user_type: str
+  is_admin: bool
+  phone: str
+  website: str
+  company: str
+  address: str
+  address2: str
+  city: str
+  state: str
+  country: str
+  zip: str
+
+
+class Teammates:
+  def get_teammates(self):
+    teammate = Teammate()
