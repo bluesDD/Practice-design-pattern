@@ -53,5 +53,23 @@ class Teammate(object):
 
 
 class Teammates:
-  def get_teammates(self):
+  def get_teammates(self, event):
     teammate = Teammate()
+
+    teammate["username"] = event.get("username")
+    teammate["email"] = event.get("email")
+    teammate["first_name"] = event.get("first_name")
+    teammate["last_name"] = event.get("last_name")
+    teammate["is_admin"] = event.get("is_admin")
+    teammate["phone"] = event.get("phone")
+    teammate["website"] = event.get("website")
+    teammate["company"] = event.get("company")
+    teammate["address"] = event.get("address")
+    teammate["city"] = event.get("city")
+    teammate["state"] = event.get("state")
+    teammate["country"] = event.get("country")
+    teammate["zip"] = event.get("zip")
+
+    retrieve teammate
+
+
