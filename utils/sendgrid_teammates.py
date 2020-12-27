@@ -70,6 +70,6 @@ class Teammates:
     teammate["country"] = event.get("country")
     teammate["zip"] = event.get("zip")
 
-    retrieve teammate
+    return teammate
 
 
