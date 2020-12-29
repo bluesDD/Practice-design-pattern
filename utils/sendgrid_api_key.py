@@ -3,6 +3,7 @@ import os
 import requests
 import json
 import typing as tp
+from dataclasses import dataclass
 
 base_url = "https://api.sendgrid.com/v3"
 sg = SendGridAPIClient()
@@ -34,3 +35,25 @@ class Client:
 
         self.__base_url = base_url
         self.__api_key = api_key
+
+
+@dataclass
+class APIKeyTeammatesReadOnly:  
+    api_key = {
+      "name": "teammates read only",
+      "scopes": [
+        "teammates.read"
+      ]
+    }
+
+    res = ""
+
+    def __post_init__(self):
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        res = sg.client.api_keys.post(request_body=data)
+
+        return res
+
+    def __set_api_key_env(self):
+        os.environ['SENDGRID_TEAMMATES_API_KEY'] = json.loads(res.body)["api_key"]
+        return print('API Key set in env.')
