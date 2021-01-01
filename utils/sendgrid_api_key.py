@@ -52,7 +52,7 @@ class APIKeyTeammatesReadOnly:
         try:
             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
             self.res = sg.client.api_keys.post(request_body=data)
-            return self.res
+            self.__set_api_key_env()
         except:
             raise
 
