@@ -48,7 +48,7 @@ class APIKeyTeammatesReadOnly:
 
     res = ""
 
-    def __post_init__(self):
+    def get_api_key(self):
         try:
             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
             self.res = sg.client.api_keys.post(request_body=data)
