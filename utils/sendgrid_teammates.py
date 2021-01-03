@@ -72,4 +72,10 @@ class Teammates:
 
     return teammate
 
+  def _make_request(self):
+    try:
+      sg = SendGridAPIClient(os.environ.get("SENDGRID_TEAMMATES_API_KEY"))
+      sg.client.teammates.get()
+
+
 
