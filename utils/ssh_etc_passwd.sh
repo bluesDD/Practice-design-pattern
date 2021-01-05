@@ -1,6 +1,10 @@
 #!/bin/bash
 
-ssh -i ec2.pem ec2-user@ec2.com <<EOC >lot.log
+hosts="host-a host-b"
+
+for host in ${hosts}; do
+ssh  ec2-user@$host <<EOC >>lot.log
 hostname
 cat /etc/passwd
 EOC
+done
