@@ -39,6 +39,7 @@ def public_key_exists(key):
 
 
 def send_message_to_slack(key):
+  ## TODO: 実際にSlackにメッセージ送る実装に変える
   print(key["user"] + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。")
 
 if __name__ == "__main__":
