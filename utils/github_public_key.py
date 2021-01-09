@@ -16,7 +16,7 @@ def get_public_keys_from_github(users):
     res = requests.get(user["authorized_keys"][0]["key"])
     keys.append({
       "user": user["name"],
-      "key": res.text
+      "public_key": res.text
     })
   return keys
 
@@ -31,11 +31,17 @@ def load_yaml(file):
   with open(file) as f:
     return yaml.safe_load(f)
 
+def public_key_exists(key)
+  if key["public_key"] == "":
+    return False
+  else:
+    return True
 
 if __name__ == "__main__":
   obj = load_yaml(YAML_FILE)
   users = obj["users"]
   print(users)
-  a = get_public_keys_from_github(users)
-  print(a)
-  
+  keys = get_public_keys_from_github(users)
+  print(keys)
+  for key in keys:
+    if public_key_exists(key) == False:
