@@ -31,11 +31,15 @@ def load_yaml(file):
   with open(file) as f:
     return yaml.safe_load(f)
 
-def public_key_exists(key)
+def public_key_exists(key):
   if key["public_key"] == "":
     return False
   else:
     return True
+
+
+def send_message_to_slack(key):
+  print(key["user"] + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。")
 
 if __name__ == "__main__":
   obj = load_yaml(YAML_FILE)
@@ -45,3 +49,4 @@ if __name__ == "__main__":
   print(keys)
   for key in keys:
     if public_key_exists(key) == False:
+      send_message_to_slack(key)
