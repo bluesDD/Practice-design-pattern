@@ -10,10 +10,10 @@ YAML_FILE = "test.yml"
 def get_public_keys_from_github(users):
   keys = []
   for user in users:
-    print(user)
-    # if user["state"]:
-    #   if user["state"] == "absent":
-    #     continue
+    if "state" in user:
+      if user["state"] == "absent":
+        continue
+
     res = requests.get(user["authorized_keys"][0]["key"])
     keys.append({
       "user": user["name"],
@@ -28,9 +28,9 @@ def load_yaml(file):
 
 
 if __name__ == "__main__":
-  top_var = "users"
   obj = load_yaml(YAML_FILE)
-  print(obj)
-  a = get_public_keys_from_github(obj)
+  users = obj["users"]
+  print(users)
+  a = get_public_keys_from_github(users)
   print(a)
   
