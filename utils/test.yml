@@ -1,0 +1,20 @@
+users:
+  - name: yyyyy
+    uid: 7004
+    group: yyyyy
+    authorized_keys:
+      - key: 'https://github.com/bluesDD.keys'
+        exclusive: true
+  - name: xxxxx
+    uid: 7005
+    group: xxxxx
+    authorized_keys:
+      - key: 'https://github.com/YuukiTetsuya.keys'
+        exclusive: true
+  - name: zzzzz
+    uid: 7006
+    group: zzzzz
+    authorized_keys:
+      - key: 'https://github.com/bluesDD.keys'
+        exclusive: true
+    state: absent
