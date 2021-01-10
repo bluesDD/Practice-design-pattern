@@ -16,7 +16,8 @@ def get_public_keys_from_github(users):
     res = requests.get(user["authorized_keys"][0]["key"])
     keys.append({
       "user": user["name"],
-      "public_key": res.text
+      "public_key": res.text,
+      "key_url": user["authorized_keys"][0]["key"]
     })
   return keys
 
@@ -41,6 +42,7 @@ def public_key_exists(key):
 def send_message_to_slack(key):
   ## TODO: 実際にSlackにメッセージ送る実装に変える
   print(key["user"] + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。")
+  print("→当該URL： " + key["key_url"])
 
 if __name__ == "__main__":
   obj = load_yaml(YAML_FILE)
