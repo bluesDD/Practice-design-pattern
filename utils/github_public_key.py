@@ -38,11 +38,15 @@ def public_key_exists(key):
   else:
     return True
 
-
 def send_message_to_slack(key):
-  ## TODO: 実際にSlackにメッセージ送る実装に変える
-  print(key["user"] + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。")
-  print("→当該URL： " + key["key_url"])
+  message_warning = key["user"] + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。"
+  message_confirm_url = "→当該URL： " + key["key_url"]
+  WEB_HOOK_URL = "https://hooks.slack.com/zzz"
+  
+  requests.post(WEB_HOOK_URL, data=json.dumps({
+    "text" : message_warning + "\n" + message_confirm_url,
+  }))
+
 
 if __name__ == "__main__":
   obj = load_yaml(YAML_FILE)
