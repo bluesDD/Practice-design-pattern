@@ -1,0 +1,4 @@
+steps:
+  - shell: bash
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
