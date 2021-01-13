@@ -1,9 +1,10 @@
 import requests
 import json
 import yaml
+import os
 
-YAML_FILE = "test.yml"
-WEB_HOOK_URL = "https://hooks.slack.com/zzz"
+YAML_FILE = os.environ.get("TARGET_FILE", "test.yml")
+WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/zzz")
 
 def get_public_keys_from_github(users):
   keys = []
