@@ -2,7 +2,8 @@ name: Check if public key is available on GitHub.
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+  # 平日朝10時（JST）
+    - cron: '0 2 * * 1-5'
 steps:
   - shell: bash
     env:
