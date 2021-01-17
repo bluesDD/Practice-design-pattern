@@ -4,7 +4,24 @@ on:
   schedule:
   # 平日朝10時（JST）
     - cron: '0 2 * * 1-5'
-steps:
+
+defaults:
+  run:
+    working-directory: ./.github/workflows/scripts/
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - run: python github_public_key.py
+
+
+steps: 
   - shell: bash
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
+
