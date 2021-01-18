@@ -18,6 +18,10 @@ jobs:
       with:
         python-version: '3.8'
     - run: python github_public_key.py
+      env: 
+        SLACK_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
+        TARGET_FILE: ${{ secrets.TARGET_FILE}}
+
 
 
 steps: 
