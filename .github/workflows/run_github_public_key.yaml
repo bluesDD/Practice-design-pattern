@@ -1,6 +1,9 @@
 name: Check if public key is available on GitHub.
 
 on:
+  push:
+    branches:
+      - main
   schedule:
   # 平日朝10時（JST）
     - cron: '0 2 * * 1-5'
@@ -18,6 +21,7 @@ jobs:
       with:
         python-version: '3.8'
     - run: pwd
+
     - run: python github_public_key.py
       env: 
         SLACK_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
