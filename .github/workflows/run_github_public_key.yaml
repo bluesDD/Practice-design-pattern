@@ -21,7 +21,8 @@ jobs:
       with:
         python-version: '3.8'
     - run: pwd
-    - run: ls -la
+    - run: |
+      ls -la
     - run: python github_public_key.py
       env: 
         SLACK_WEBHOOK_URL: ${{ secrets.WebhookUrl }}
