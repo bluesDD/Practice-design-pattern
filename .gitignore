@@ -14,3 +14,4 @@ PKG-INFO
 r.py
 *.png
 sendgrid.env
+!requirements.txt
