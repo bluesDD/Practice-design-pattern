@@ -3,8 +3,8 @@ import json
 import yaml
 import os
 
-YAML_FILE = os.environ.get("TARGET_FILE", "test.yml")
-WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/zzz")
+yaml_file = os.environ.get("TARGET_FILE", "test.yml")
+webhook_url = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/zzz")
 
 def get_public_keys_from_github(users):
   keys = []
@@ -43,7 +43,7 @@ def send_message_to_slack(key):
   
   try:
     # TODO: テスト用にかえてる
-    # requests.post(WEB_HOOK_URL, data=json.dumps({
+    # requests.post(webhook_url, data=json.dumps({
     #   "text" : warning_message,
     # }))
     return print("Warning have been sent to slack successfully!")
@@ -51,9 +51,8 @@ def send_message_to_slack(key):
     raise
 
 
-
 if __name__ == "__main__":
-  obj = load_yaml(YAML_FILE)
+  obj = load_yaml(yaml_file)
   users = obj["users"]
   keys = get_public_keys_from_github(users)
   for key in keys:
