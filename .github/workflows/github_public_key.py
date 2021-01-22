@@ -46,7 +46,7 @@ def send_message_to_slack(key):
     # requests.post(webhook_url, data=json.dumps({
     #   "text" : warning_message,
     # }))
-    return print("Warning have been sent to slack successfully!")
+    print("Warning have been sent to slack successfully!")
   except:
     raise
 
