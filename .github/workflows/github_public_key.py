@@ -51,10 +51,13 @@ def send_message_to_slack(key):
     raise
 
 
+def notify_if_public_key_removed(keys):
+  for key in keys:
+    if public_key_exists(key) == False:
+      send_message_to_slack(key)
+
 if __name__ == "__main__":
   obj = load_yaml(yaml_file)
   users = obj["users"]
   keys = get_public_keys_from_github(users)
-  for key in keys:
-    if public_key_exists(key) == False:
-      send_message_to_slack(key)
+  notify_if_public_key_removed(keys)
