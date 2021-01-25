@@ -1,10 +1,11 @@
-import requests
 import json
-import yaml
 import os
+import requests
+import yaml
 
 yaml_file = os.environ.get("TARGET_FILE", "test.yml")
-webhook_url = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/zzz")
+webhook_url = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/")
+
 
 def get_public_keys_from_github(users):
   keys = []
@@ -19,6 +20,7 @@ def get_public_keys_from_github(users):
     })
   return keys
 
+
 def is_state_absent(user):
   if "state" in user:
     if user["state"] == "absent":
@@ -26,9 +28,11 @@ def is_state_absent(user):
   else:
     return False
 
+
 def load_yaml(file):
   with open(file) as f:
     return yaml.safe_load(f)
+
 
 def public_key_exists(key):
   if key["public_key"] == "":
@@ -36,10 +40,11 @@ def public_key_exists(key):
   else:
     return True
 
+
 def send_message_to_slack(key):
   warning_message = key["user"] \
     + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。\n" \
-    + "→当該URL： " + key["key_url"]
+    + "→確認URL： " + key["key_url"]
   
   try:
     # TODO: テスト用にかえてる
@@ -55,6 +60,7 @@ def notify_if_public_key_removed(keys):
   for key in keys:
     if public_key_exists(key) == False:
       send_message_to_slack(key)
+
 
 if __name__ == "__main__":
   obj = load_yaml(yaml_file)
