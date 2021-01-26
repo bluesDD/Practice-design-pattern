@@ -3,7 +3,7 @@ import os
 import requests
 import yaml
 
-yaml_file = os.environ.get("TARGET_FILE", "test.yml")
+user_yaml_file = os.environ.get("TARGET_FILE", "test.yml")
 webhook_url = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/")
 
 
@@ -63,7 +63,7 @@ def notify_if_public_key_removed(keys):
 
 
 if __name__ == "__main__":
-  obj = load_yaml(yaml_file)
+  obj = load_yaml(user_yaml_file)
   users = obj["users"]
   keys = get_public_keys_from_github(users)
   notify_if_public_key_removed(keys)
