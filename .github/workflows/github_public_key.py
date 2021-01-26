@@ -8,62 +8,62 @@ webhook_url = os.environ.get("SLACK_WEBHOOK_URL", "https://hooks.slack.com/")
 
 
 def get_public_keys_from_github(users):
-  keys = []
-  for user in users:
-    if is_state_absent(user):
-        continue
-    res = requests.get(user["authorized_keys"][0]["key"])
-    keys.append({
-      "user": user["name"],
-      "public_key": res.text,
-      "key_url": user["authorized_keys"][0]["key"]
-    })
-  return keys
+    keys = []
+    for user in users:
+        if is_state_absent(user):
+            continue
+        res = requests.get(user["authorized_keys"][0]["key"])
+        keys.append({
+            "user": user["name"],
+            "public_key": res.text,
+            "key_url": user["authorized_keys"][0]["key"]
+        })
+    return keys
 
 
 def is_state_absent(user):
-  if "state" in user:
-    if user["state"] == "absent":
-      return True
-  else:
-    return False
+    if "state" in user:
+        if user["state"] == "absent":
+            return True
+    else:
+        return False
 
 
 def load_yaml(file):
-  with open(file) as f:
-    return yaml.safe_load(f)
+    with open(file) as f:
+        return yaml.safe_load(f)
 
 
 def public_key_exists(key):
-  if key["public_key"] == "":
-    return False
-  else:
-    return True
+    if key["public_key"] == "":
+        return False
+    else:
+        return True
 
 
 def send_message_to_slack(key):
-  warning_message = key["user"] \
-    + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。\n" \
-    + "→確認URL： " + key["key_url"]
-  
-  try:
-    # TODO: テスト用にかえてる
-    # requests.post(webhook_url, data=json.dumps({
-    #   "text" : warning_message,
-    # }))
-    print("Warning have been sent to slack successfully!")
-  except:
-    raise
+    warning_message = key["user"] \
+        + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。\n" \
+        + "→確認URL： " + key["key_url"]
+
+    try:
+        # TODO: テスト用にかえてる
+        # requests.post(webhook_url, data=json.dumps({
+        #   "text" : warning_message,
+        # }))
+        print("Warning have been sent to slack successfully!")
+    except:
+        raise
 
 
 def notify_if_public_key_removed(keys):
-  for key in keys:
-    if public_key_exists(key) == False:
-      send_message_to_slack(key)
+    for key in keys:
+        if public_key_exists(key) == False:
+            send_message_to_slack(key)
 
 
 if __name__ == "__main__":
-  obj = load_yaml(user_yaml_file)
-  users = obj["users"]
-  keys = get_public_keys_from_github(users)
-  notify_if_public_key_removed(keys)
+    obj = load_yaml(user_yaml_file)
+    users = obj["users"]
+    keys = get_public_keys_from_github(users)
+    notify_if_public_key_removed(keys)
