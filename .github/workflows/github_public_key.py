@@ -47,7 +47,7 @@ def send_message_to_slack(key):
         + "→確認URL： " + key["key_url"]
 
     try:
-        # TODO: テスト用にかえてる
+        # TODO: ローカル用にかえてる
         # requests.post(webhook_url, data=json.dumps({
         #   "text" : warning_message,
         # }))
