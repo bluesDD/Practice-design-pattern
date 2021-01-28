@@ -41,7 +41,7 @@ def public_key_exists(key):
         return True
 
 
-def send_message_to_slack(key):
+def send_message_to_slack(key, webhook_url):
     warning_message = key["user"] \
         + "さんのGitHub上の公開鍵が消えてしまっているようです。再登録作業を案内してあげてください。\n" \
         + "→確認URL： " + key["key_url"]
@@ -56,10 +56,10 @@ def send_message_to_slack(key):
         raise
 
 
-def notify_if_public_key_removed(keys):
+def notify_if_public_key_removed(keys, webhook_url):
     for key in keys:
         if public_key_exists(key) == False:
-            send_message_to_slack(key)
+            send_message_to_slack(key, webhook_url)
 
 
 if __name__ == "__main__":
