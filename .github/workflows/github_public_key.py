@@ -66,4 +66,4 @@ if __name__ == "__main__":
     obj = load_yaml(user_yaml_file)
     users = obj["users"]
     keys = get_public_keys_from_github(users)
-    notify_if_public_key_removed(keys)
+    notify_if_public_key_removed(keys, webhook_url)
