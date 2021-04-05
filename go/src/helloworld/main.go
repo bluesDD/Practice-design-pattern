@@ -10,8 +10,9 @@ func main() {
 	println("SUm: ", sum)
 }
 
-func sum(number1 string, number2 string) int {
+func sum(number1 string, number2 string) (result int) {
 	int1, _ := strconv.Atoi(number1)
 	int2, _ := strconv.Atoi(number2)
-	return int1 + int2
+	result = int1 + int2
+	return
 }
