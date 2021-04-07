@@ -1,13 +1,17 @@
 package main
 
 import (
-	"os"
 	"strconv"
 )
 
 func main() {
-	sum, _ := calc(os.Args[1], os.Args[2])
-	println("SUm: ", sum)
+	firstName := "John"
+	updateName(&firstName)
+	println(firstName)
+}
+
+func updateName(name *string) {
+	*name = "David"
 }
 
 func sum(number1 string, number2 string) (result int) {
