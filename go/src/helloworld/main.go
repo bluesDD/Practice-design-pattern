@@ -1,11 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
-	sum := 0
-	for i := 1; i <= 100; i++ {
-		sum += i
+	var num int32
+	sec := time.Now().Unix()
+	rand.Seed(sec)
+
+	for {
+		fmt.Println("Writing inside the loop...")
+		if num = rand.Int31n(10); num == 5 {
+			fmt.Println("finish")
+			break
+		}
+		fmt.Println(num)
+
 	}
-	fmt.Println("Sum is...", sum)
 }
