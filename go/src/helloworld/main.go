@@ -1,23 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"math/rand"
-	"time"
+	"io"
+	"os"
 )
 
 func main() {
-	var num int32
-	sec := time.Now().Unix()
-	rand.Seed(sec)
-
-	for {
-		fmt.Println("Writing inside the loop...")
-		if num = rand.Int31n(10); num == 5 {
-			fmt.Println("finish")
-			break
-		}
-		fmt.Println(num)
-
+	f, err := os.Create("notes.txt")
+	if err != nil {
+		return
 	}
+
+	defer f.Close()
+
+	if _, err = io.WriteString(f, "Learning Go!"); err != nil {
+		return
+	}
+
+	f.Sync()
 }
