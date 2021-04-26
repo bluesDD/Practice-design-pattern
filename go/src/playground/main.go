@@ -1,15 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
-func main() {
-
-	var hex Hex = 100
-	fmt.Println(hex.String())
+func getArgs() []string {
+	return os.Args[1:]
 }
 
-type Hex int
+func getFile(filename string) {
+	sf, err := os.Open(filename)
+	if err != nil {
+		os.Exit(1)
+	}
 
-func (h Hex) String() string {
-	return fmt.Sprintf("%x", int(h))
+	scanner := bufio.NewScanner(sf)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+}
+func main() {
+	args := getArgs()
+	// fmt.Println(args)
+	for i := 0; i < len(args); i++ {
+		getFile(args[i])
+
+	}
 }
