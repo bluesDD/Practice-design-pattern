@@ -1,3 +1,4 @@
+// 任意の型に特化した関数を定義するため
 package main
 
 import "fmt"
